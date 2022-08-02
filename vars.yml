@@ -17,9 +17,9 @@ controller_templates:
       spec:
         - question_name: Username
           type: text
-          variable: username
+          variable: sam_account_name
           required: true
         - question_name: New OU DistinguishedName
           type: text
-          variable: path
+          variable: ou_path
           required: true
