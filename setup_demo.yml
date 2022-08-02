@@ -17,6 +17,7 @@
         name: "{{ item }}"
         path: "OU=groups,{{ ad_domain_dn }}"
         state: present
+        scope: global
       loop: "{{ ad_desired_groups }}"
 
     - name: retrieve AD Groups
