@@ -42,7 +42,7 @@
 
   tasks:
     - debug:
-        msg: ad_groups
+        var: ad_groups
 
     - name: Setup Components
       include_role:
