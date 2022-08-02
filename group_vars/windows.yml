@@ -6,6 +6,7 @@ ad_desired_ous:
   - Finance
   - IT
   - Sales
+  - Groups
 
 ad_desired_groups:
   - Helpdesk Users
