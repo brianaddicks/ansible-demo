@@ -23,3 +23,5 @@ controller_templates:
           type: text
           variable: ou_path
           required: true
+
+ad_domain: ansible.local
