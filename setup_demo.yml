@@ -27,9 +27,9 @@
         state: present
       loop: "{{ ad_desired_ous }}"
 
-    - name: add desired OUs
-      community.windows.win_domain_ou:
+    - name: add desired groups
+      community.windows.win_domain_group:
         name: "{{ item }}"
-        path: "{{ ad_domain_dn }}"
+        path: "OU=groups,{{ ad_domain_dn }}"
         state: present
-      loop: "{{ ad_desired_ous }}"
+      loop: "{{ ad_desired_groups }}"
