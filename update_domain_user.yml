@@ -29,7 +29,7 @@
 
     - name: Setting host facts using complex arguments
       set_fact:
-        temp_password: "{{ lookup('community.general.random_string', min_lower=1, min_upper=1, min_special=1, min_numeric=1) }}"
+        temp_password: "{{ lookup('community.general.random_string', min_lower=1, min_upper=1, min_special=1, min_numeric=1, length=12) }}"
       when: reset_password == "yes"
 
     - name: Resetting Password
