@@ -70,3 +70,12 @@ controller_templates:
           variable: ad_group
           required: false
           choices: "{{ ad_desired_groups }}"
+
+        - question_name: Reset Password
+          type: multiplechoice
+          variable: reset_password
+          required: true
+          choices:
+            - "no"
+            - "yes"
+          default: "no"

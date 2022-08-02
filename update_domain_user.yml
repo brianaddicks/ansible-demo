@@ -25,3 +25,22 @@
         members: "{{ sam_account_name }}"
         state: present
       loop: "{{ ad_group }}"
+
+    - name: Setting host facts using complex arguments
+      set_fact:
+        temp_password: "{{ lookup('community.general.random_string', min_lower=1, min_upper=1, min_special=1, min_numeric=1) }}"
+      when: reset_password == "yes"
+
+    - name: Resetting Password
+      community.windows.win_domain_user:
+        name: "{{ sam_account_name }}"
+        password: "{{ temp_password }}"
+        enabled: yes
+        account_locked: yes
+        update_password: always
+      when: reset_password == "yes"
+
+    - name: Show temp password
+      debug:
+        var: temp_password
+      when: reset_password == "yes"
