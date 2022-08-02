@@ -1,20 +1,5 @@
 
 ---
-- hosts: localhost
-  gather_facts: no
-  vars_files:
-    - "vars.yml"
-  vars:
-    controller_validate_certs: false
-
-  tasks:
-    - name: Setup Components
-      include_role:
-        name: "redhat_cop.controller_configuration.{{ item }}"
-      loop: "{{ controller_components }}"
-      when:
-        - controller_components | d("") | length > 0
-
 - name: stage AD objects
   hosts: windows
   gather_facts: no
@@ -33,3 +18,34 @@
         path: "OU=groups,{{ ad_domain_dn }}"
         state: present
       loop: "{{ ad_desired_groups }}"
+
+    - name: retrieve AD Groups
+      community.windows.win_domain_object_info:
+        filter: objectClass -eq 'group'
+        properties: name
+      register: ad_groups
+
+    - debug:
+        #msg: "{{ ad_groups }}"
+        msg: "{{ ad_groups | community.general.json_query('objects[*].Name') }}"
+
+- name: setup Ansible components
+  hosts: localhost
+  gather_facts: no
+  vars_files:
+    - "vars.yml"
+  vars:
+    - controller_validate_certs: false
+    - ad_groups: "{{ groups['windows'][0] }}"
+    # - vpc_security_groups: "{{ hostvars['vpc-ansibled']['returned_security_groups'] | json_query('results[*].group_id') }}"
+
+  tasks:
+    - debug:
+        msg: ad_groups
+
+    - name: Setup Components
+      include_role:
+        name: "redhat_cop.controller_configuration.{{ item }}"
+      loop: "{{ controller_components }}"
+      when:
+        - controller_components | d("") | length > 0
