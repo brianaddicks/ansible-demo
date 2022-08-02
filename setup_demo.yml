@@ -26,6 +26,10 @@
         properties: name
       register: ad_groups
 
+    # - name: "set facts: Gateway IDs and IP"
+    #   set_fact:
+    #     vpc_gateway_id: "{{ create_gateway.gateway_id }}"
+
     - debug:
         #msg: "{{ ad_groups }}"
         msg: "{{ ad_groups | community.general.json_query('objects[*].Name') }}"
@@ -37,8 +41,8 @@
     - "vars.yml"
   vars:
     - controller_validate_certs: false
-    - ad_groups: "{{ groups['windows'][0] }}"
-    # - vpc_security_groups: "{{ hostvars['vpc-ansibled']['returned_security_groups'] | json_query('results[*].group_id') }}"
+    - domain_controller: "{{ groups['windows'][0] }}"
+    - ad_groups: "{{ hostvars[groups['windows'][0]]['ad_groups']"
 
   tasks:
     - debug:
