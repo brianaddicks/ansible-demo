@@ -1,0 +1,15 @@
+---
+- name: deploy new domain controller
+  hosts: windows
+  gather_facts: no
+
+  tasks:
+
+    - name: retrive AD Groups
+      win_dsc:
+        filter: objectClass -eq 'group'
+        properties: name
+      register: ad_groups
+
+    - debug:
+        var: ad_groups
