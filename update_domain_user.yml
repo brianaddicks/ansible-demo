@@ -1,0 +1,20 @@
+---
+- name: update active directory domain user
+  hosts: windows
+  gather_facts: no
+
+  tasks:
+    - name: Install ActiveDirectoryDsc PSModule
+      win_psmodule:
+        name: ActiveDirectoryDsc
+        state: present
+      when: ou_path is defined
+
+    - name: enable RDP
+      win_dsc:
+        resource_name: ADUser
+        ensure: present
+        username: "{{ sam_account_name }}"
+        path: "OU={{ ou_path }},DC=ansible,DC=local"
+        domainname: "{{ ad_domain }}"
+      when: ou_path is defined

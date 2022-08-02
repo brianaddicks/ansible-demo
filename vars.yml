@@ -40,3 +40,27 @@ controller_templates:
     credentials:
     - "Workshop Credential"
     survey_enabled: true
+
+  - name: "ACTIVE DIRECTORY / Update Domain User"
+    job_type: run
+    inventory: "Workshop Inventory"
+    project: "Personal Demo Project"
+    playbook: "update_domain_user.yml"
+    execution_environment: Default execution environment
+    credentials:
+    - "Workshop Credential"
+    survey_enabled: true
+    survey:
+      name: 'Update Domain User'
+      description: ''
+      spec:
+        - question_name: Username
+          type: text
+          variable: sam_account_name
+          required: true
+
+        - question_name: New OU
+          type: multiplechoice
+          variable: ou_path
+          required: false
+          choices: "{{ ad_desired_ous }}"
