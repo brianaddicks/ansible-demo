@@ -26,9 +26,6 @@
         properties: name
       register: ad_groups
 
-    - debug:
-        msg: "{{ ad_groups | community.general.json_query('objects[*].Name') }}"
-
 - name: setup Ansible components
   hosts: localhost
   gather_facts: no
@@ -41,7 +38,7 @@
 
   tasks:
     - debug:
-        var: ad_groups
+        var: ad_desired_ous
 
     - name: Setup Components
       include_role:
