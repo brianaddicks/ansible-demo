@@ -12,4 +12,4 @@
       register: ad_groups
 
     - debug:
-        var: ad_groups[objects]
+        msg: "{{ ad_groups.objects[*].Name }}"
