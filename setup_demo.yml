@@ -26,6 +26,10 @@
         properties: name
       register: ad_groups
 
+    - name: set fact for desired ous
+      set_fact:
+        ad_desired_ous: "{{ ad_desired_ous }}"
+
 - name: setup Ansible components
   hosts: localhost
   gather_facts: no
