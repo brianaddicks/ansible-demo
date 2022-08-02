@@ -27,9 +27,9 @@ controller_templates:
           type: multiplechoice
           variable: ou_path
           required: true
-          choices:
-            - Finance
-            - Human Resources
+          choices: "{{ ad_desired_ous }}"
+            # - Finance
+            # - Human Resources
 
   - name: "ACTIVE DIRECTORY / List All Groups"
     job_type: run
