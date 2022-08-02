@@ -41,6 +41,7 @@
     - domain_controller: "{{ groups['windows'][0] }}"
     - ad_groups: "{{ hostvars[groups['windows'][0]]['ad_groups'] | community.general.json_query('objects[*].Name') }}"
     - ad_desired_ous: "{{ hostvars[groups['windows'][0]]['ad_desired_ous'] }}"
+    - ad_desired_groups: "{{ hostvars[groups['windows'][0]]['ad_desired_groups'] }}"
 
   tasks:
     - debug:
