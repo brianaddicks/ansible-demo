@@ -3,7 +3,6 @@
   hosts: windows
 
   tasks:
-
     - name: Install ActiveDirectoryDsc PSModule
       win_psmodule:
         name: ActiveDirectoryDsc
