@@ -6,7 +6,7 @@
   tasks:
 
     - name: retrive AD Groups
-      win_dsc:
+      community.windows.win_domain_object_info:
         filter: objectClass -eq 'group'
         properties: name
       register: ad_groups
