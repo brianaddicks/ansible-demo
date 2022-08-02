@@ -6,8 +6,6 @@
     - "vars.yml"
   vars:
     controller_validate_certs: false
-  collections:
-    - ansible.controller
 
   tasks:
     - name: Setup Components
