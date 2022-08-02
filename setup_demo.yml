@@ -29,6 +29,7 @@
     - name: set fact for desired ous
       set_fact:
         ad_desired_ous: "{{ ad_desired_ous }}"
+        ad_desired_groups: "{{ ad_desired_groups }}"
 
 - name: setup Ansible components
   hosts: localhost

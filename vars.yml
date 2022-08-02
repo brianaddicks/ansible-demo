@@ -64,3 +64,9 @@ controller_templates:
           variable: ou_path
           required: false
           choices: "{{ ad_desired_ous }}"
+
+        - question_name: AD Groups
+          type: multiselect
+          variable: ad_group
+          required: false
+          choices: "{{ ad_desired_groups }}"

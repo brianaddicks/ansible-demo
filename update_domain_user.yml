@@ -10,7 +10,7 @@
         state: present
       when: ou_path is defined
 
-    - name: enable RDP
+    - name: Update User OU
       win_dsc:
         resource_name: ADUser
         ensure: present
@@ -18,3 +18,10 @@
         path: "OU={{ ou_path }},DC=ansible,DC=local"
         domainname: "{{ ad_domain }}"
       when: ou_path is defined
+
+    - name: Update Domain Groups
+      community.windows.win_domain_group_membership:
+        name: "{{ item }}"
+        members: "{{ sam_account_name }}"
+        state: present
+      loop: "{{ ad_group }}"
