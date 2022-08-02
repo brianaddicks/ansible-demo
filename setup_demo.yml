@@ -37,7 +37,7 @@
   vars:
     - controller_validate_certs: false
     - domain_controller: "{{ groups['windows'][0] }}"
-    - ad_groups: "{{ hostvars[groups['windows'][0]]['ad_groups'] }}"
+    - ad_groups: "{{ hostvars[groups['windows'][0]]['ad_groups'] | community.general.json_query('objects[*].Name') }}"
 
   tasks:
     - debug:
