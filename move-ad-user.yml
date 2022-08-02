@@ -14,5 +14,5 @@
         resource_name: ADUser
         ensure: present
         username: "{{ sam_account_name }}"
-        path: "CN={{ ou_path }},DC=ansible,DC=local"
+        path: "OU={{ ou_path }},DC=ansible,DC=local"
         domainname: "{{ ad_domain }}"
