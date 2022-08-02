@@ -37,7 +37,7 @@
         name: "{{ sam_account_name }}"
         password: "{{ temp_password }}"
         enabled: yes
-        account_locked: yes
+        account_locked: no
         update_password: always
       when: reset_password == "yes"
 
