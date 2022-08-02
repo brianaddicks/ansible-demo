@@ -1,1 +1,10 @@
 ad_domain: ansible.local
+ad_desired_ous:
+  - Human Resources
+  - Finance
+  - IT
+  - Sales
+
+ad_desired_groups:
+  - Helpdesk Users
+  - Server Admins
