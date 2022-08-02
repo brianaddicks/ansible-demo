@@ -1,4 +1,6 @@
 ad_domain: ansible.local
+ad_domain_dn: "DC=ansible,DC=local"
+
 ad_desired_ous:
   - Human Resources
   - Finance
