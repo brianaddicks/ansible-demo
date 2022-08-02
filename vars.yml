@@ -19,9 +19,16 @@ controller_templates:
           type: text
           variable: sam_account_name
           required: true
-        - question_name: New OU DistinguishedName
-          type: text
+        # - question_name: New OU DistinguishedName
+        #   type: text
+        #   variable: ou_path
+        #   required: true
+        - question_name: New OU
+          type: multiplechoice
           variable: ou_path
           required: true
+          choices:
+            - Finance
+            - Human Resources
 
 ad_domain: ansible.local
