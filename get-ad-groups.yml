@@ -12,4 +12,4 @@
       register: ad_groups
 
     - debug:
-        var: ad_groups
+        var: ad_groups[objects]
