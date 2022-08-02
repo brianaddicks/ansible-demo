@@ -1,6 +1,6 @@
 ---
 - name: deploy new domain controller
-  hosts: domaincontrollers
+  hosts: windows
 
   tasks:
 
