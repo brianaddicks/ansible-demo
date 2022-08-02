@@ -74,7 +74,7 @@ controller_templates:
         - question_name: Reset Password
           type: multiplechoice
           variable: reset_password
-          required: true
+          required: false
           choices:
             - "no"
             - "yes"

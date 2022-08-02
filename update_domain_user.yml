@@ -25,6 +25,7 @@
         members: "{{ sam_account_name }}"
         state: present
       loop: "{{ ad_group }}"
+      when: ad_group is defined
 
     - name: Setting host facts using complex arguments
       set_fact:
