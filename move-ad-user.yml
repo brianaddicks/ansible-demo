@@ -1,0 +1,17 @@
+---
+- name: deploy new domain controller
+  hosts: domaincontrollers
+
+  tasks:
+
+    - name: Install ActiveDirectoryDsc PSModule
+      win_psmodule:
+        name: ActiveDirectoryDsc
+        state: present
+
+    - name: enable RDP
+      win_dsc:
+        resource_name: ActiveDirectoryDsc
+        ensure: present
+        username: "{{ sam_account_name }}"
+        path: "{{ ou_path }}"
