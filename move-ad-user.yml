@@ -11,7 +11,7 @@
 
     - name: enable RDP
       win_dsc:
-        resource_name: ActiveDirectoryDsc
+        resource_name: ADUser
         ensure: present
         username: "{{ sam_account_name }}"
         path: "{{ ou_path }}"
