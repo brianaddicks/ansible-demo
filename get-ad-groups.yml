@@ -13,4 +13,4 @@
 
     - debug:
         #msg: "{{ ad_groups }}"
-        msg: "{{ ad_groups | json_query('objects[*].Name') }}"
+        msg: "{{ ad_groups | community.general.json_query('objects[*].Name') }}"
