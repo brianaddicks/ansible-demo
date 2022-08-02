@@ -1,6 +1,7 @@
 ---
 - name: deploy new domain controller
   hosts: windows
+  gather_facts: no
 
   tasks:
     - name: Install ActiveDirectoryDsc PSModule
