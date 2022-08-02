@@ -5,7 +5,7 @@
 
   tasks:
 
-    - name: retrive AD Groups
+    - name: retrieve AD Groups
       community.windows.win_domain_object_info:
         filter: objectClass -eq 'group'
         properties: name

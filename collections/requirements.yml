@@ -8,3 +8,4 @@ collections:
   - community.windows
   - name: ansible.windows
     version: 1.9.0
+  - name: community.general
